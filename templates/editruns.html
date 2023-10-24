@@ -1,0 +1,67 @@
+{% extends "administrator.html" %}
+{% block content %}
+
+    <h2>Edit Runs</h2>
+    <form method="get" action="/editruns">
+        <label for="driver_id">Select a Driver:</label>
+        <select name="driver_id" id="driver_id">
+            <option value="">Select a Driver</option>
+            {% for driver in drivers %}
+                <option value="{{ driver[0] }}">{{ driver[1] }} {{ driver[2] }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="course_id">Select a Course:</label>
+        <select name="course_id" id="course_id">
+            <option value="">Select a Course</option>
+            {% for course in courses %}
+                <option value="{{ course[0] }}">{{ course[1] }}</option>
+            {% endfor %}
+        </select>
+ 
+        <label for="run_num">Select a Run Number:</label>
+        <select name="run_num" id="run_num">
+            <option value="">Select a Run Number</option>
+            {% for run_num in run_nums %}
+                <option value="{{ run_num }}">{{ run_num}}</option>
+            {% endfor %}
+        </select>
+        
+        <button type="submit">Apply Filters</button>
+    </form>
+    
+    <h2>Runs</h2>
+    <table>
+        <tr>
+            <th>Driver</th>
+            <th>Course</th>
+            <th>Run Number</th>
+            <th>Time (Seconds)</th>
+            <th>Cones</th>
+            <th>Wrong Direction (WD)</th>
+            <th>Actions</th>
+        </tr>
+        {% for run in runs %}
+            <form method="post" action="/editruns"> <!-- Start a new form for each run -->
+                <tr>
+                    <td>{{ run[0] }} {{ run[7] }} {{ run[8] }}   </td>
+                    <td>   {{ run[1] }} {{ run[6] }}</td>
+                    <td> {{ run[2] }} </td>
+                    <!-- <td><input type="number" name="seconds" min="0" max="100" step="0.01" value="{{ run[3] }}"></td>
+                    <td><input type="number" name="cones" min="0" max="25" value="{{ run[4] }}"></td> -->
+
+                    <td><input type="number" name="seconds" min="0" max="100" step="0.01" value="{% if run[3] is defined %}{{ run[3] }}{% else %}None{% endif %}"></td>
+                    <td><input type="number" name="cones" min="0" max="25" value="{% if run[4] is defined %}{{ run[4] }}{% else %}None{% endif %}"></td>
+
+                    <td>
+                        <input type="checkbox" name="wd" value="{{ run[5] }}" {% if run[5] == 1 %}checked{% endif %}></td>
+                        <input type="hidden" name="dr_id" value="{{ run[0] }}">
+                        <input type="hidden" name="crs_id" value="{{ run[1] }}">
+                        <input type="hidden" name="run_num" value="{{ run[2] }}">
+                    </td>
+                    <td><button type="submit" class="btn btn-primary">Save</button></td>
+                </tr>
+            </form>
+        {% endfor %}
+    </table>
+{% endblock %}

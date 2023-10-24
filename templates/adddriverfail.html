@@ -1,0 +1,15 @@
+{% extends "administrator.html" %}
+{% block content %}
+    <h2>Add Driver Fail</h2>
+    <p>Add Driver failed.</p>
+    <p>Check your input value and make sure that:</p>
+    <ul>
+        <li>All Drivers must be aged 12 or older.</li>
+        <li>Drivers aged 16 or younger must have a caregiver.</li>
+        <li>Wrong format of date of birth.</li>
+        <li>Other input errors.</li>
+    </ul>
+
+    <a href="{{ url_for('adddriver') }}">Back to Add Driver</a>
+
+{% endblock %}

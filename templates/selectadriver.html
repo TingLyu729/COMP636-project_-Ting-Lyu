@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    
+<form id="run_details_form" name="run_details_form" action="showrundetails" method="post">
+    <label for="Driver">Choose a Driver:</label>
+    <select name="driver_id" id="driver_id">
+        <option>&lt;Choose a Driver&gt;</option>
+        {% for driver in drivers %}
+            <option value="{{ driver[0] }}">{{ driver[1] }} {{ driver[2] }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="View Run Details">
+</form>
+
+{% endblock %}

@@ -9,14 +9,13 @@
 
     <body>
       <nav>
-            <h1>Bankside Rakaia Motorkhana Mavens - Competition event</h1>
+            <h1>Bankside Rakaia Motorkhana Mavens - Competition event (Administrator's Interface)</h1>
             <ul>
-                <li><a href="{{ url_for('listdrivers') }}">List Drivers</a></li>
-                <li><a href="{{ url_for('listcourses') }}">List Courses</a></li>
-                <li><a href="{{ url_for('selectadriver') }}">Driver's Run Details</a></li>
-                <li><a href="{{ url_for('overallresults') }}">Overall Results</a></li>
-                <li><a href="{{ url_for('showgraph') }}">Top 5 Drivers</a></li>
-                <li><a href="{{ url_for('administrator') }}">Administrator Interface</a></li>
+                <li><a href="{{ url_for('listjuniordrivers') }}">List Junior Drivers</a></li>
+                <li><a href="{{ url_for('searchdriver') }}">Search Driver</a></li>
+                <li><a href="{{ url_for('editruns') }}">Edit Runs</a></li>
+                <li><a href="{{ url_for('adddriver') }}">Add Driver</a></li>
+                <li><a href="{{ url_for('home') }}">Back to Homepage</a></li>
             </ul>
         </nav>
           <section class="content">
@@ -28,7 +27,6 @@
             {% endfor %}
             {% block content %}{% endblock %}
           </section>
-
         <!-- Bootstrap's JavaScript bundle including Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>

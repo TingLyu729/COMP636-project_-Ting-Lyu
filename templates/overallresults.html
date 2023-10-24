@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Overall Results</h2>
+
+<table class="table table-bordered">
+<tr>
+    <th>Driver ID</th>
+    <th>Driver Name</th>
+    <th>Car Model</th>
+    <th>Cracked Fluorescent Course Time</th>
+    <th>Going Loopy Course Time</th>
+    <th>Hamburger Course Time</th>
+    <th>Mum's Favourite Course Time</th>
+    <th>Shoulders Back Course Time</th>
+    <th>Walnut Course Time</th>
+    <th>Total Time</th>
+    <th>Reward</th>
+</tr>
+
+<tbody>
+    {% for result in results %}
+    <tr>
+        <td>{{ result[0] }}</td>
+        <td>{{ result[1] }}</td>
+        <td>{{ result[2] }}</td>
+        <td>{{ result[3] }}</td>
+        <td>{{ result[4] }}</td>
+        <td>{{ result[5] }}</td>
+        <td>{{ result[6] }}</td>
+        <td>{{ result[7] }}</td>
+        <td>{{ result[8] }}</td>
+        <td>{{ result[9] }}</td>
+        <td>
+            {% if result[10] == 0 %}
+                <span class="award-icon">🏆</span>  {# Display a cup for the winner #}
+            {% elif result[10] < 5 and result[10] > 0 %}
+                <span class="award-icon">🏅</span>  {# Display a prize for the next 4 #}
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+{% endblock %}

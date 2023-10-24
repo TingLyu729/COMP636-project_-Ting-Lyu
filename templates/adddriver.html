@@ -1,0 +1,53 @@
+{% extends "administrator.html" %}
+{% block content %}
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Add Driver</h1>
+        <form method="post" action="/adddriver">
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" class="form-control" name="first_name" required>
+            </div>
+            <div class="form-group">
+                <label for="surname">Surname:</label>
+                <input type="text" class="form-control" name="surname" required>
+            </div>
+            <div class="form-group">
+                <label for="car_num">Select Car:</label>
+                <select class="form-control" name="car_num" id="car_num" required>
+                    <option value="">Select a Car</option>
+                    {% for car in cars %}
+                        <option value="{{ car[0] }}">{{ car }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="is_junior" id="is_junior">
+                    <label class="form-check-label" for="is_junior">Is Junior Driver?</label>
+                </div>
+            </div>
+            <div class="form-group" id="junior-fields" style="display: none;">
+                <label for="date_of_birth">Date of Birth:</label>
+                <input type="date" class="form-control" name="date_of_birth" id="date_of_birth" min="1998-10-23" max="2023-10-23">
+                <label for="caregiver">Select Caregiver:</label>
+                <select class="form-control" name="caregiver" id="caregiver">
+                    <option value="">Select a Caregiver</option>
+                    {% for caregiver in caregivers %}
+                        <option value="{{ caregiver[0] }}">{{ caregiver[1] }} {{ caregiver[2] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit">Add Driver</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to handle the display of the junior fields
+        document.getElementById("is_junior").addEventListener("change", function() {
+            const juniorFields = document.getElementById("junior-fields");
+            juniorFields.style.display = this.checked ? "block" : "none";
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Driver's Run Details</h2>
+
+{% if rundetails %}
+  <p>Driver ID: {{ rundetails[0][0] }}</p>
+  <p>Name: {{ rundetails[0][6] }} {{ rundetails[0][7] }}</p>
+  <p>Car Model: {{ rundetails[0][8] }}</p>
+  <p>Drive Class: {{ rundetails[0][9] }}</p>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Run Number</th>
+        <th>Seconds</th>
+        <th>Cones</th>
+        <th>WD</th>
+        <th>Run Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for run in rundetails %}
+        <tr>
+          <td>{{ run[10] }}</td>
+          <td>{{ run[2] }}</td>
+          <td>{{ run[3] }}</td>
+          <td>{{ run[4] }}</td>
+          <td>{{ run[5] }}</td>
+          <td>{{ run[11] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No run details available for the selected driver.</p>
+{% endif %}
+
+<a href="{{ url_for('listdrivers') }}">Back to List Drivers</a>
+{% endblock %}

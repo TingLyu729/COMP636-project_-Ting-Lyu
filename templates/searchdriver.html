@@ -1,0 +1,35 @@
+{% extends "administrator.html" %}
+{% block content %}
+    <h2>Search Driver</h2>
+    <form method="post">
+        <label for="search_term">Search for a Driver:</label>
+        <input type="text" name="search_term" id="search_term" required>
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if results %}
+        <h3>Search Results for "{{ search_term }}":</h3>
+        <table>
+            <tr>
+                <th>Driver ID</th>
+                <th>Name</th>
+                <th>Date of Birth</th>
+                <th>Age</th>
+                <th>Care Giver</th>
+                <th>Car Model</th>
+                <th>Driver Class</th>
+            </tr>
+            {% for driver in results %}
+            <tr>
+                <td>{{ driver[0] }}</td>  
+                <td><a href="{{ url_for('getrundetails', driver_id=driver[0]) }}">{{ driver[1] }} {{ driver[2] }}</a></td>
+                <td>{{ driver[3] }}</td>
+                <td>{{ driver[4] }}</td>
+                <td>{{ driver[5] }}</td>
+                <td>{{ driver[6] }}</td>
+                <td>{{ driver[7] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

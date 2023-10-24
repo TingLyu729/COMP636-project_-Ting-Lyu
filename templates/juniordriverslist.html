@@ -1,0 +1,34 @@
+{% extends "administrator.html" %}
+{% block content %}
+    <h2>Junior Driver List</h2>
+    <table>
+        <tr>
+            <th>Driver ID</th>
+            <th>Driver Name</th>
+            <th>Date of Birth</th>
+            <th>Age</th>
+            <th>Caregiver ID</th>
+            <th>Caregiver Name</th>
+            <th>Car Model</th>
+            <th>Drive Class</th>
+        </tr>
+        {% for driver in junior_drivers %}
+        <tr>
+            <td>{{ driver[0] }}</td>
+            <td><a href="{{ url_for('getrundetails', driver_id=driver[0]) }}">{{ driver[1] }} {{ driver[2] }}</td>
+            <td>{{ driver[3] }}</td>
+            <td>{{ driver[4] }}</td>
+            <td>{{ driver[5] }}</td>
+            <td>
+                {% if driver[5] %}
+                <a href="{{ url_for('getrundetails', driver_id=driver[5]) }}">{{ driver[6] }} {{ driver[7] }}
+                {% else %}
+                    None
+                {% endif %}
+            <td>{{ driver[8] }}</td>
+            <td>{{ driver[9] }}</td>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

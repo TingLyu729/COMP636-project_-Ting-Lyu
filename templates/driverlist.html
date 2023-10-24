@@ -4,9 +4,29 @@
 <!-- Add code to display a list of drivers -->
 
 <h2>Driver List</h2>
+<table>
+    <tr>
+        <th>Driver ID</th>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>Age</th>
+        <th>Care Giver</th>
+        <th>Car Model</th>
+        <th>Drive Class</th>
+    </tr>
+    {% for driver in driver_list %}
+    <tr {% if driver[4] and driver[4] <= 18 %} class="bg-warning" {% endif %}>
+        <td>{{ driver[0] }}</td>  
+        <td><a href="{{ url_for('getrundetails', driver_id=driver[0]) }}">{{ driver[1] }} {{ driver[2] }}</a></td>
+        <td>{{ driver[3] }}</td>
+        <td>{{ driver[4] }}</td>
+        <td>{{ driver[5] }}</td>
+        <td>{{ driver[6] }}</td>
+        <td>{{ driver[7] }}</td>
+   
+    </tr>
+    {% endfor %}
+</table>
 
-<p>For the Milestone submission, this page just needs to display this text successfully in your browser.</p>
-
-<p>Add the driver list here for your final submission.</p>
 
 {% endblock %}
