@@ -75,61 +75,47 @@
   - New run details data is passed to the database.
 - **Description**: Users can edit run details for drivers in this route. The route provides options to filter runs by driver, course, and run number. It retrieves the relevant data and passes it to the `editruns.html` template for editing. It then updates the
 
-12. **Route: `/editruns` (Edit Runs)**
-    - **Template**: 
-     - `editruns.html`, this template allows users to select a driver, a course, and a run number. It also displays the original seconds, cones, and wd and provides a form for editing them.
-    - `editrunssuccess.html`, this template notifies the user that editing is successful
-    - `editrunsfail.html`, this template notifies the user that editing is not successful and informs possible reasons
-    - **Data Passed from template to Route**:
-      - driver id, course id and run number are passed from template to route when users make choices
-      - the edited run data is sent to the route when user submit the edited run information 
-   - **Data Passed from Route**:
-      - Run details (`runs`) based on selected filter criteria.
-   - **Data Passed from Route to Database**
-     - New run details data is passed to the database
-   - **Description**: Users can edit run details for drivers in this route. The route provides options to filter runs by driver, course, and run number. It retrieves the relevant data and passes it to the `editruns.html` template for editing. It then updates the data in the database.
-
 13. **Route: `/adddriver` (Add Driver)**
-    - **Template**: 
-     - `adddriver.html`
-     - `adddriversuccess.html`,provides a success message after successfully adding a driver. 
 
-     - `adddriverfail.html`,  If there is an issue while adding a driver, this route displays a failure message including possible causes of failure.
+    - **Template**:
+        - `adddriver.html`
+        - `adddriversuccess.html`: Provides a success message after successfully adding a driver.
+        - `adddriverfail.html`: If there is an issue while adding a driver, this route displays a failure message including possible causes of failure.
 
     - **Data Passed from Route to Template**:
-     - Lists of cars and caregivers for dropdown selection.
+        - Lists of cars and caregivers for dropdown selection.
 
-   - **Data Passed from Template to Route**:
-     - New driver’s first name, surname, selected car number, 
-     - Junior driver’s date of birth and caregiver
+    - **Data Passed from Template to Route**:
+        - New driver’s first name, surname, selected car number.
+        - Junior driver’s date of birth and caregiver.
 
-   - **Data Passed from Route to Database**
-     - Driver’s info including name, care, age, and caregiver, and empty value for run details for the eight runs.
+    - **Data Passed from Route to Database**:
+        - Driver’s info including name, care, age, and caregiver, and empty value for run details for the eight runs.
 
-
-    - **Description**: Users can add new drivers through this route. It offers a form for adding driver information, including the driver's name, car, age for junior driver and caregiver for junior drivers under 16. It provides dropdowns for car selection and caregiver selection. It then creates a new driver, and eight runs with empty run data for this driver in the database.
+    - **Description**: Users can add new drivers through this route. It offers a form for adding driver information, including the driver's name, car, age for junior driver, and caregiver for junior drivers under 16. It provides dropdowns for car selection and caregiver selection. It then creates a new driver and eight runs with empty run data for this driver in the database.
 
 *Assumptions and design decisions*
 
 1. **Assumptions**
- -It is assumed that the MySQL database exists with the required tables (driver, car, course, and run) and their fields.
-- All existing data in the database are valid.
--The database structure is assumed to be consistent with the code and template requirements.
--The connect module contains valid database connection information.
-- There is some sort of implementation of authorization to restrict access to the administrator interface.
-- Application is secure against common web vulnerabilities, such as SQL injection, cross-site scripting (XSS), and cross-site request forgery (CSRF). 
--Drivers are all over 12 years old.
--For junior drivers, caregivers are assigned based on age and are assumed to be 16 years or older.
+    - It is assumed that the MySQL database exists with the required tables (driver, car, course, and run) and their fields.
+    - All existing data in the database are valid.
+    - The database structure is assumed to be consistent with the code and template requirements.
+    - The connect module contains valid database connection information.
+    - There is some sort of implementation of authorization to restrict access to the administrator interface.
+    - Application is secure against common web vulnerabilities, such as SQL injection, cross-site scripting (XSS), and cross-site request forgery (CSRF).
+    - Drivers are all over 12 years old.
+    - For junior drivers, caregivers are assigned based on age and are assumed to be 16 years or older.
 
-2. **Decisions**
--Use of Flask: Flask was chosen as the web framework for its simplicity and flexibility.
-Database Structure: The application uses a relational database to store information about drivers, cars, courses, and runs.
--SQL Queries: Direct SQL queries are used to retrieve data from the database, but parameterized queries should be used for security.
--Templates: HTML templates are used to separate the presentation layer from the logic.
--Data Flow: Data is fetched from the database in route functions and passed to templates for rendering.
--Junior Drivers: Drivers are categorised as junior if their age is under 18. Caregivers are assigned based on age.
--Web Forms: Forms are used for adding drivers and editing run details.
--Error Handling: Basic error handling is implemented, but more robust error handling and validation should be added.
+2. **Design Decisions**
+    - Use of Flask: Flask was chosen as the web framework for its simplicity and flexibility.
+    - Database Structure: The application uses a relational database to store information about drivers, cars, courses, and runs.
+    - SQL Queries: Direct SQL queries are used to retrieve data from the database, but parameterized queries should be used for security.
+    - Templates: HTML templates are used to separate the presentation layer from the logic.
+    - Data Flow: Data is fetched from the database in route functions and passed to templates for rendering.
+    - Junior Drivers: Drivers are categorized as junior if their age is under 18. Caregivers are assigned based on age.
+    - Web Forms: Forms are used for adding drivers and editing run details.
+    - Error Handling: Basic error handling is implemented, but more robust error handling and validation should be added.
+
 
 *Database Questions*
 **What SQL statement creates the car table and defines its three fields/columns? (Copy and paste the relevant lines of SQL.)**
