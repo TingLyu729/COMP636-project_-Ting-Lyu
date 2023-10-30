@@ -75,7 +75,7 @@
   - New run details data is passed to the database.
 - **Description**: Users can edit run details for drivers in this route. The route provides options to filter runs by driver, course, and run number. It retrieves the relevant data and passes it to the `editruns.html` template for editing. It then updates the database.
 
-## 13. Route: `/adddriver` (Add Driver)**
+## 13. Route: `/adddriver` (Add Driver)
 
 - **Template**:
   - `adddriver.html`
@@ -94,10 +94,9 @@
 
 - **Description**: Users can add new drivers through this route. It offers a form for adding driver information, including the driver's name, car, age for junior driver, and caregiver for junior drivers under 16. It provides dropdowns for car selection and caregiver selection. It then creates a new driver and eight runs with empty run data for this driver in the database.
 
+# Assumptions and design decisions
 
-*Assumptions and design decisions*
-
-1. **Assumptions**
+## Assumptions
     - It is assumed that the MySQL database exists with the required tables (driver, car, course, and run) and their fields.
     - All existing data in the database are valid.
     - The database structure is assumed to be consistent with the code and template requirements.
@@ -107,7 +106,7 @@
     - Drivers are all over 12 years old.
     - For junior drivers, caregivers are assigned based on age and are assumed to be 16 years or older.
 
-2. **Design Decisions**
+## Design Decisions
     - Use of Flask: Flask was chosen as the web framework for its simplicity and flexibility.
     - Database Structure: The application uses a relational database to store information about drivers, cars, courses, and runs.
     - SQL Queries: Direct SQL queries are used to retrieve data from the database, but parameterized queries should be used for security.
