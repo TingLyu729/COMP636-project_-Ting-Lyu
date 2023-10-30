@@ -97,25 +97,25 @@
 # Assumptions and design decisions
 
 ## Assumptions
-    - **It is assumed that the MySQL database exists with the required tables (driver, car, course, and run) and their fields**
-    - All existing data in the database are valid.
-    - The database structure is assumed to be consistent with the code and template requirements.
-    - The connect module contains valid database connection information.
-    - There is some sort of implementation of authorization to restrict access to the administrator interface.
-    - Application is secure against common web vulnerabilities, such as SQL injection, cross-site scripting (XSS), and cross-site request forgery (CSRF).
-    - Drivers are all over 12 years old.
-    - For junior drivers, caregivers are assigned based on age and are assumed to be 16 years or older.
+  1. **It is assumed that the MySQL database exists with the required tables (driver, car, course, and run) and their fields**
+  2. **All existing data in the database are valid.**
+  3. **The database structure is assumed to be consistent with the code and template requirements.**
+  4. **The connect module contains valid database connection information.**
+  5. **There is some sort of implementation of authorization to restrict access to the administrator interface.**
+  6. **Application is secure against common web vulnerabilities, such as SQL injection, cross-site scripting (XSS), and cross-site request forgery (CSRF).**
+  7. **Drivers are all over 12 years old.**
+  8. **For junior drivers, caregivers are assigned based on age and are assumed to be 16 years or older.**
+
 
 ## Design Decisions
-    - Use of Flask: Flask was chosen as the web framework for its simplicity and flexibility.
-    - Database Structure: The application uses a relational database to store information about drivers, cars, courses, and runs.
-    - SQL Queries: Direct SQL queries are used to retrieve data from the database, but parameterized queries should be used for security.
-    - Templates: HTML templates are used to separate the presentation layer from the logic.
-    - Data Flow: Data is fetched from the database in route functions and passed to templates for rendering.
-    - Junior Drivers: Drivers are categorized as junior if their age is under 18. Caregivers are assigned based on age.
-    - Web Forms: Forms are used for adding drivers and editing run details.
-    - Error Handling: Basic error handling is implemented, but more robust error handling and validation should be added.
-
+1. **Use of Flask: Flask was chosen as the web framework for its simplicity and flexibility.**
+2. **Database Structure: The application uses a relational database to store information about drivers, cars, courses, and runs.**
+3. **SQL Queries: Direct SQL queries are used to retrieve data from the database, but parameterized queries should be used for security.**
+4. **Templates: HTML templates are used to separate the presentation layer from the logic.**
+5. **Data Flow: Data is fetched from the database in route functions and passed to templates for rendering.**
+6. **Junior Drivers: Drivers are categorized as junior if their age is 12-25. Caregivers are assigned based on age.**
+7. **Web Forms: Forms are used for adding drivers and editing run details.**
+8. **Error Handling: Basic error handling is implemented, but more robust error handling and validation should be added.**
 
 # Web Application Structure
 ## What SQL statement creates the car table and defines its three fields/columns? (Copy and paste the relevant lines of SQL.)
