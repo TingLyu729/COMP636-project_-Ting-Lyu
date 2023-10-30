@@ -1,4 +1,4 @@
-*Report on BRMM web app development*
+
 *Web application structure*
 This project is a web application built using the Flask framework for managing information including drivers, cars, courses and runs for a single competitive Motorkhana event run by BRMM car club. The report outlines the structure of the web application, assumptions, design decisions, and answers database-related questions.
 
