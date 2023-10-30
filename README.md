@@ -1,6 +1,5 @@
  
 
-```markdown
 # Web Application Structure
 
 ## 1. Route: `/` (Home Page)
