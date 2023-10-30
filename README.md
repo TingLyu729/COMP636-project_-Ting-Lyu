@@ -109,7 +109,7 @@ This project is a web application built using the Flask framework for managing i
 -Drivers are all over 12 years old.
 -For junior drivers, caregivers are assigned based on age and are assumed to be 16 years or older.
 
-2. **Assumptions**
+2. **Decisions**
 -Use of Flask: Flask was chosen as the web framework for its simplicity and flexibility.
 Database Structure: The application uses a relational database to store information about drivers, cars, courses, and runs.
 -SQL Queries: Direct SQL queries are used to retrieve data from the database, but parameterized queries should be used for security.
