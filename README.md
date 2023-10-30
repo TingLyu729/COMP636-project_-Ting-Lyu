@@ -117,7 +117,7 @@
 7. **Web Forms: Forms are used for adding drivers and editing run details.**
 8. **Error Handling: Basic error handling is implemented, but more robust error handling and validation should be added.**
 
-# Web Application Structure
+# Database questions
 ## What SQL statement creates the car table and defines its three fields/columns? (Copy and paste the relevant lines of SQL.)
 
 CREATE TABLE IF NOT EXISTS car
