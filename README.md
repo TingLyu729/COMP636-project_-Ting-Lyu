@@ -73,26 +73,27 @@
   - Run details (`runs`) based on selected filter criteria.
 - **Data Passed from Route to Database**:
   - New run details data is passed to the database.
-- **Description**: Users can edit run details for drivers in this route. The route provides options to filter runs by driver, course, and run number. It retrieves the relevant data and passes it to the `editruns.html` template for editing. It then updates the
+- **Description**: Users can edit run details for drivers in this route. The route provides options to filter runs by driver, course, and run number. It retrieves the relevant data and passes it to the `editruns.html` template for editing. It then updates the database.
 
-13. **Route: `/adddriver` (Add Driver)**
+## 13. Route: `/adddriver` (Add Driver)**
 
-    - **Template**:
-        - `adddriver.html`
-        - `adddriversuccess.html`: Provides a success message after successfully adding a driver.
-        - `adddriverfail.html`: If there is an issue while adding a driver, this route displays a failure message including possible causes of failure.
+- **Template**:
+  - `adddriver.html`
+  - `adddriversuccess.html`: Provides a success message after successfully adding a driver.
+  - `adddriverfail.html`: If there is an issue while adding a driver, this route displays a failure message including possible causes of failure.
 
-    - **Data Passed from Route to Template**:
-        - Lists of cars and caregivers for dropdown selection.
+- **Data Passed from Route to Template**:
+  - Lists of cars and caregivers for dropdown selection.
 
-    - **Data Passed from Template to Route**:
-        - New driver’s first name, surname, selected car number.
-        - Junior driver’s date of birth and caregiver.
+- **Data Passed from Template to Route**:
+  - New driver’s first name, surname, selected car number.
+  - Junior driver’s date of birth and caregiver.
 
-    - **Data Passed from Route to Database**:
-        - Driver’s info including name, care, age, and caregiver, and empty value for run details for the eight runs.
+- **Data Passed from Route to Database**:
+  - Driver’s info including name, care, age, and caregiver, and empty value for run details for the eight runs.
 
-    - **Description**: Users can add new drivers through this route. It offers a form for adding driver information, including the driver's name, car, age for junior driver, and caregiver for junior drivers under 16. It provides dropdowns for car selection and caregiver selection. It then creates a new driver and eight runs with empty run data for this driver in the database.
+- **Description**: Users can add new drivers through this route. It offers a form for adding driver information, including the driver's name, car, age for junior driver, and caregiver for junior drivers under 16. It provides dropdowns for car selection and caregiver selection. It then creates a new driver and eight runs with empty run data for this driver in the database.
+
 
 *Assumptions and design decisions*
 
