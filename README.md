@@ -97,7 +97,7 @@
 # Assumptions and design decisions
 
 ## Assumptions
-    - It is assumed that the MySQL database exists with the required tables (driver, car, course, and run) and their fields.
+    - **It is assumed that the MySQL database exists with the required tables (driver, car, course, and run) and their fields**
     - All existing data in the database are valid.
     - The database structure is assumed to be consistent with the code and template requirements.
     - The connect module contains valid database connection information.
@@ -117,8 +117,8 @@
     - Error Handling: Basic error handling is implemented, but more robust error handling and validation should be added.
 
 
-*Database Questions*
-**What SQL statement creates the car table and defines its three fields/columns? (Copy and paste the relevant lines of SQL.)**
+# Web Application Structure
+## What SQL statement creates the car table and defines its three fields/columns? (Copy and paste the relevant lines of SQL.)
 
 CREATE TABLE IF NOT EXISTS car
 (
@@ -127,17 +127,17 @@ model VARCHAR(20) NOT NULL,
 drive_class VARCHAR(3) NOT NULL
 );
 
-**Which line of SQL code sets up the relationship between the car and driver tables?**
+## Which line of SQL code sets up the relationship between the car and driver tables?
 FOREIGN KEY (car) REFERENCES car(car_num)
 
 
-**Which 3 lines of SQL code insert the Mini and GR Yaris details into the car table?**
+## Which 3 lines of SQL code insert the Mini and GR Yaris details into the car table?
 
 INSERT INTO car VALUES
 (11,'Mini','FWD'),
 (17,'GR Yaris','4WD'),
 
-**Suppose the club wanted to set a default value of ‘RWD’ for the driver_class field. What specific change would you need to make to the SQL to do this? (Do not implement this change in your app.)**
+## Suppose the club wanted to set a default value of ‘RWD’ for the driver_class field. What specific change would you need to make to the SQL to do this? (Do not implement this change in your app.)
 We just need to set a default value of 'RWD' for the drive_class field in the car tableHere's the modified SQL statement:
 CREATE TABLE IF NOT EXISTS car
 (
@@ -146,15 +146,14 @@ model VARCHAR(20) NOT NULL,
 drive_class VARCHAR(3) DEFAULT ‘RWD’ NOT NULL
 );
 
-
-**Suppose logins were implemented. Why is it important for drivers and the club admin to access different routes? As part of your answer, give two specific examples of problems that could occur if all of the web app facilities were available to everyone.**
+## Suppose logins were implemented. Why is it important for drivers and the club admin to access different routes? As part of your answer, give two specific examples of problems that could occur if all of the web app facilities were available to everyone.
 
 It is important for drivers and the club admin to access different routes in a web application for several reasons:
 
-1. ***Data Integrity***: Club admins are responsible for maintaining the integrity of the data in the system, including race results, driver profiles, and course information. By segregating routes, the admin can ensure that data remains accurate and reliable. Allowing drivers to access admin routes could lead to accidental or intentional data manipulation, leading to inaccurate records. 
-2. ***Accountability***: Separating routes and controlling access helps in maintaining accountability. If all facilities were available to everyone, it would be challenging to identify who made specific changes or performed certain actions within the web application. By assigning specific routes to different user roles, it becomes easier to track and audit user activities.
+1. **Data Integrity**: Club admins are responsible for maintaining the integrity of the data in the system, including race results, driver profiles, and course information. By segregating routes, the admin can ensure that data remains accurate and reliable. Allowing drivers to access admin routes could lead to accidental or intentional data manipulation, leading to inaccurate records. 
+2. **Accountability**: Separating routes and controlling access helps in maintaining accountability. If all facilities were available to everyone, it would be challenging to identify who made specific changes or performed certain actions within the web application. By assigning specific routes to different user roles, it becomes easier to track and audit user activities.
 
-3. ***Compliance***: In certain industries and applications, there may be legal or regulatory requirements that mandate separation of duties and data access. Compliance with these regulations is essential to avoid legal issues and fines.
+3. **Compliance**: In certain industries and applications, there may be legal or regulatory requirements that mandate separation of duties and data access. Compliance with these regulations is essential to avoid legal issues and fines.
 
 
 
